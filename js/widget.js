@@ -15,6 +15,7 @@ $(function () {
     },
 
     onLayout: function () {
+        chameleon.setTitle({ text: $('body').height() })
     },
 
     onScrollTop: function () {
@@ -45,6 +46,7 @@ $(function () {
     },
 
     notChameleon: function () {
+      $('body').addClass('not-chameleon')
     }
 
   })

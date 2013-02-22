@@ -1,21 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
   <head>
     <title>London Tube</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
-    <link rel="stylesheet" href="//chameleon.teknision.com/widgets/common/css/chameleon.css">
-    <link rel="stylesheet" href="//widgetgecko.com/common/css/widget.css">
-    <link rel="stylesheet" href="css/widget.css">
+    <link rel="stylesheet" href="//chameleon.teknision.com/widgets/common/css/chameleon.css" data-skip="true">
+    <!-- <link rel="stylesheet" href="//widgetgecko.com/common/css/widget.css"> -->
+    <link rel="stylesheet" href="/css/widget.css">
+    <!-- <script type="text/javascript" src="/js/cssrefresh.js"></script> -->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script type="text/javascript" src="//chameleon.teknision.com/widgets/common/js/chameleon.server.js"></script>
     <script type="text/javascript" src="//chameleon.teknision.com/widgets/common/js/chameleon.js"></script>
     <script type="text/javascript" src="//chameleon.teknision.com/widgets/common/js/chameleon.jquery.js"></script>
     <script type="text/javascript" src="//chameleon.teknision.com/widgets/common/js/chameleon.localization.jquery.js"></script>
-    <script type="text/javascript" src="//widgetgecko.com/common/js/utils.js"></script>
-    <script type="text/javascript" src="js/widget.js"></script>
+    <!--<script type="text/javascript" src="//widgetgecko.com/common/js/utils.js"></script>-->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+    <script type="text/javascript" src="/js/controllers.js"></script>
+    <script type="text/javascript" src="/js/widget.js"></script>
   </head>
-  <body>
-    <div id="chameleon-widget"></div>
+  <body ng-controller="TubeStatusController">
+    <div id="chameleon-widget">
+      <div id="line-status-table">
+        <div ng-repeat="line in lines" data-line-id="{{line.id}}" data-ok="{{!line.problem}}" class="line-status">
+          <div class="name colour"><span>{{line.name}}</span></div>
+          <div class="status" ng-class="{'colour': line.problem}"><span>{{line.status}}</span></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
