@@ -4,9 +4,7 @@
 
 Stay up-to-date with the status of the London Underground with this widget.
 
-**Current Version:** 0.2.0
-
-### [More Details][3] | [Install in Chameleon][2]
+**Current Version:** Not Yet Released!
 
 ## License
 
