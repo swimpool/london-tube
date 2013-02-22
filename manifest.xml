@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<manifest xmlns="http://chameleonlauncher.com/widgets">
+  <widget>
+    <guid>com.widgetgecko.london-tube</guid>
+    <baseURL>http://widgetgecko.com/london-tube/</baseURL>
+    <name>London Tube</name>
+    <description>A widget showing the current status of the London Tube network.</description>
+    <version>0.2.0</version>
+  </widget>
+  <style>
+    <icons>
+      <large>images/icon.png</large>
+    </icons>
+    <color>#113B92</color>
+    <showTitleBar>true</showTitleBar>
+    <showBackgroundShadow>false</showBackgroundShadow>
+    <allowRefresh>true</allowRefresh>
+    <allowConfigure>true</allowConfigure>
+    <allowAction>false</allowAction>
+  </style>
+  <author>
+    <name>WidgetGecko</name>
+    <website>http://widgetgecko.com</website>
+    <email>info@widgetgecko.com</email>
+    <support type="email">support@widgetgecko.com</support>
+    <support type="URL">http://widgetgecko.com/support</support>
+  </author>
+  <resources>
+    <resource name='index.html' />
+    <resource name='settings.html' />
+    <resource name='js/widget.js' />
+    <resource name='js/settings.js' />
+    <resource name='css/widget.css' />
+    <resource name='images/icon.png' />
+  </resources>
+</manifest>
