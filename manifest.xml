@@ -2,10 +2,10 @@
 <manifest xmlns="http://chameleonlauncher.com/widgets">
   <widget>
     <guid>com.widgetgecko.london-tube</guid>
-    <baseURL>http://s3.amazonaws.com/widgetgecko.com/london-tube/</baseURL>
+    <baseURL>http://s3.amazonaws.com/widgetgecko/london-tube/</baseURL>
     <name>London Tube</name>
     <description>A widget showing the current status of the London Tube network.</description>
-    <version>0.2.2</version>
+    <version>0.2.3</version>
   </widget>
   <style>
     <icons>
