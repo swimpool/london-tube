@@ -1,7 +1,5 @@
 angular.module('widget.services', [])
 
-  .value('version', '0.2.0')
-
   .factory('chameleon', function ($rootScope) {
 
     chameleon.widget({
@@ -61,15 +59,13 @@ angular.module('widget.services', [])
       chameleon.setTitle({ text: title });
     });
 
-    return {
-      openLink: function (url) {
-        if (chameleon.connected()) {
-          chameleon.intent({
-            action: 'android.intent.action.VIEW',
-            data: url
-          });
-        }
+    $rootScope.$on('chameleon.openLink', function (url) {
+      if (chameleon.connected()) {
+        chameleon.intent({
+          action: 'android.intent.action.VIEW',
+          data: url
+        });
       }
-    };
+    });
 
   });
