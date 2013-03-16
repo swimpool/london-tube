@@ -9,14 +9,9 @@ function TubeStatusCtrl($scope, $http, chameleon) {
   $scope.$on('chameleon.pause', stopPolling);
   $scope.$on('chameleon.connect', startPolling);
   $scope.$on('chameleon.disconnect', stopPolling);
-  $scope.$on('chameleon.notchameleon', startPolling);
-
-  $scope.$on('chameleon.notchameleon', function () {
-    $scope.$emit('chameleon.setTitle', 'Not Chameleon');
-  });
 
   $scope.lineClicked = function (line) {
-    chameleon.openLink('http://m.tfl.gov.uk/mt/www.tfl.gov.uk/tfl/livetravelnews/realtime/tube/default.html?un_jtt_v_message=' + line.id);
+    $scope.$emit('chameleon.openLink', 'http://m.tfl.gov.uk/mt/www.tfl.gov.uk/tfl/livetravelnews/realtime/tube/default.html?un_jtt_v_message=' + line.id);
   };
 
   function startPolling(event) {
