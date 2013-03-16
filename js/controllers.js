@@ -1,97 +1,51 @@
-function TubeStatusController($scope) {
-  $scope.lines = [
-    {
-      "name": "Bakerloo",
-      "id": "bakerloo",
-      "status": "Good Service",
-      "messages": [],
-      "problem": false
-    },
-    {
-      "name": "Central",
-      "id": "central",
-      "status": "Good Service",
-      "messages": [],
-      "problem": false
-    },
-    {
-      "name": "Circle",
-      "id": "circle",
-      "status": "Severe Delays",
-      "messages": [
-        "Severe delays in the Anti Clockwise direction due to a temporary shortage of train operators. Good Service Clockwise"
-      ],
-      "problem": true
-    },
-    {
-      "name": "District",
-      "id": "district",
-      "status": "Good Service",
-      "messages": [],
-      "problem": false
-    },
-    {
-      "name": "DLR",
-      "id": "docklands",
-      "status": "Good Service",
-      "messages": [],
-      "problem": true
-    },
-    {
-      "name": "H'smith & City",
-      "id": "hammersmithcity",
-      "status": "Good Service",
-      "messages": [],
-      "problem": false
-    },
-    {
-      "name": "Jubilee",
-      "id": "jubilee",
-      "status": "Good Service",
-      "messages": [],
-      "problem": false
-    },
-    {
-      "name": "Metropolitan",
-      "id": "metropolitan",
-      "status": "Good Service",
-      "messages": [],
-      "problem": false
-    },
-    {
-      "name": "Northern",
-      "id": "northern",
-      "status": "Good Service",
-      "messages": [],
-      "problem": false
-    },
-    {
-      "name": "Overground",
-      "id": "overground",
-      "status": "Good Service",
-      "messages": [],
-      "problem": false
-    },
-    {
-      "name": "Piccadilly",
-      "id": "piccadilly",
-      "status": "Good Service",
-      "messages": [],
-      "problem": false
-    },
-    {
-      "name": "Victoria",
-      "id": "victoria",
-      "status": "Good Service",
-      "messages": [],
-      "problem": false
-    },
-    {
-      "name": "Waterloo & City",
-      "id": "waterloocity",
-      "status": "Good Service",
-      "messages": [],
-      "problem": false
-    }
-  ]
+function TubeStatusCtrl($scope, $http, chameleon) {
+
+  $scope.$on('chameleon.refresh', function () {
+    updateStatus();
+  });
+
+  $scope.$on('chameleon.load', startPolling);
+  $scope.$on('chameleon.resume', startPolling);
+  $scope.$on('chameleon.pause', stopPolling);
+  $scope.$on('chameleon.connect', startPolling);
+  $scope.$on('chameleon.disconnect', stopPolling);
+  $scope.$on('chameleon.notchameleon', startPolling);
+
+  $scope.$on('chameleon.notchameleon', function () {
+    $scope.$emit('chameleon.setTitle', 'Not Chameleon');
+  });
+
+  $scope.lineClicked = function (line) {
+    chameleon.openLink('http://m.tfl.gov.uk/mt/www.tfl.gov.uk/tfl/livetravelnews/realtime/tube/default.html?un_jtt_v_message=' + line.id);
+  };
+
+  function startPolling(event) {
+    updateStatus();
+    $scope.$emit('chameleon.polling.start', {
+      id: 'status-update',
+      interval: 5 * 60,
+      callback: function () {
+        updateStatus();
+      }
+    });
+  }
+
+  function stopPolling(event) {
+    $scope.$emit('chameleon.polling.stop', {
+      id: 'status-update'
+    });
+  }
+
+  function updateStatus() {
+    $http.get('http://widgetgecko.com/api/london-tube/status.json')
+      .success(function (data) {
+        $scope.lines = data;
+        $scope.lastUpdated = new Date();
+      })
+      .error(function (data, status, headers, config) {
+        // TODO: Do something about this error I suppose!
+      });
+  }
+
+  $scope.lines = [];
 }

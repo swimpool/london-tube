@@ -15,7 +15,7 @@ body.not-chameleon {
 
 .not-chameleon #chameleon-widget {
   width: 400px;
-  height: 200px;
+  height: 800px;
   border: 2px solid #ddd;
   overflow: hidden;
   margin: 50px auto;
@@ -44,6 +44,13 @@ body.not-chameleon {
   padding: 0.1em 0.4em;
 }
 
+.last-updated {
+  display: block;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
 .line-status .status {
   width: 50%;
 }
@@ -58,56 +65,4 @@ body.not-chameleon {
     display: none;
   }
 
-}
-
-.line-status[data-line-id="bakerloo"] .colour {
-  background-color: rgba(174, 97, 24, 0.6);
-}
-
-.line-status[data-line-id="central"] .colour {
-  background-color: rgba(228, 31, 31, 0.6);
-}
-
-.line-status[data-line-id="circle"] .colour {
-  background-color: rgba(248, 212, 45, 0.6);
-}
-
-.line-status[data-line-id="district"] .colour {
-  background-color: rgba(0, 114, 41, 0.6);
-}
-
-.line-status[data-line-id="hammersmithcity"] .colour {
-  background-color: rgba(232, 153, 168, 0.6);
-}
-
-.line-status[data-line-id="jubilee"] .colour {
-  background-color: rgba(104, 110, 114, 0.6);
-}
-
-.line-status[data-line-id="metropolitan"] .colour {
-  background-color: rgba(137, 50, 103, 0.6);
-}
-
-.line-status[data-line-id="northern"] .colour {
-  background-color: rgba(17, 17, 17, 0.6);
-}
-
-.line-status[data-line-id="piccadilly"] .colour {
-  background-color: rgba(4, 80, 161, 0.6);
-}
-
-.line-status[data-line-id="victoria"] .colour {
-  background-color: rgba(0, 159, 224, 0.6);
-}
-
-.line-status[data-line-id="waterloocity"] .colour {
-  background-color: rgba(112, 195, 206, 0.6);
-}
-
-.line-status[data-line-id="docklands"] .colour {
-  background-color: rgba(0, 187, 180, 0.6);
-}
-
-.line-status[data-line-id="overground"] .colour {
-  background-color: rgba(248, 108, 0, 0.6);
 }
