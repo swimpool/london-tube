@@ -27,7 +27,7 @@ body.not-chameleon {
   width: 100%;
   font-family: 'Roboto';
   font-size: 0.9em;
-  border-spacing: 0 0.2em;
+  border-spacing: 0;
 }
 
 .line-status {
