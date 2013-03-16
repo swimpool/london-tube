@@ -13,6 +13,7 @@
     <script type="text/javascript" src="//chameleon.teknision.com/widgets/common/js/chameleon.jquery.js"></script>
     <script type="text/javascript" src="//chameleon.teknision.com/widgets/common/js/chameleon.localization.jquery.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular-sanitize.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/filters.js"></script>
     <script type="text/javascript" src="js/directives.js"></script>
@@ -24,7 +25,7 @@
       <div id="line-status-table">
         <div ng-repeat="line in lines" status-line="line" class="line-status" ng-click="lineClicked(line)">
           <div class="name colour"><span>{{line.name}}</span></div>
-          <div class="status"><span>{{line.status | titlecase }}</span></div>
+          <div class="status"><span ng-bind-html="line.status | titlecase | split: ','"></span></div>
         </div>
       </div>
     </div>
