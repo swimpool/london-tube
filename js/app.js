@@ -1,1 +1,1 @@
-angular.module('londonTubeWidget', [ 'widget.filters', 'widget.services', 'widget.directives', 'ngSanitize' ]);
+angular.module('londonTubeWidget', [ 'widget.filters', 'widgetgecko.services', 'widget.directives', 'ngSanitize', 'widget.services' ]);

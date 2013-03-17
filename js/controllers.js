@@ -1,4 +1,7 @@
-function TubeStatusCtrl($scope, $http, chameleon) {
+function TubeStatusCtrl($scope, $http, Chameleon, version) {
+
+  var bugsense = new Bugsense({ apiKey: 'cb4096c7', appversion: version });
+  updateStatus();
 
   $scope.$on('chameleon.refresh', function () {
     updateStatus();
@@ -38,7 +41,9 @@ function TubeStatusCtrl($scope, $http, chameleon) {
         $scope.lastUpdated = new Date();
       })
       .error(function (data, status, headers, config) {
-        // TODO: Do something about this error I suppose!
+        bugsense.notify('Update Status Error', 'controllers.js', 44, {
+          data: data, status: status, headers: headers, config: config
+        });
       });
   }
 
