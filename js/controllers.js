@@ -1,7 +1,6 @@
 function TubeStatusCtrl($scope, $http, Chameleon, version) {
 
   var bugsense = new Bugsense({ apiKey: 'cb4096c7', appversion: version });
-  updateStatus();
 
   $scope.$on('chameleon.refresh', function () {
     updateStatus();
