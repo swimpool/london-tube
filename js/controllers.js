@@ -40,9 +40,7 @@ function TubeStatusCtrl($scope, $http, Chameleon, version) {
         $scope.lastUpdated = new Date();
       })
       .error(function (data, status, headers, config) {
-        bugsense.notify('Update Status Error', 'controllers.js', 44, {
-          data: data, status: status, headers: headers, config: config
-        });
+        bugsense.notify(new Error('Update Status Error'));
       });
   }
 
