@@ -6,6 +6,10 @@ Stay up-to-date with the status of the London Underground with this widget.
 
 **Current Version:** Not Yet Released!
 
+## Screenshots
+
+[![london-tube 0.2.9 screenshot][img-1]][4]
+
 ## License
 
 Copyright (c) 2013 Matthew Tole &lt;info@matthewtole.com&gt;
@@ -19,3 +23,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 [1]: http://www.chameleonlauncher.com/
 [2]: http://widgetgecko.com/london-tube/
 [3]: http://widgetgecko.com/london-tube/info/
+[4]: http://res.cloudinary.com/matthewtole-com/image/upload/v1363622513/wg_londontube_0-2-9_01.png
+
+[img-1]: http://res.cloudinary.com/matthewtole-com/image/upload/c_thumb,g_north_west,h_300/v1363622513/wg_londontube_0-2-9_01.png "Screenshot v0.2.9"
