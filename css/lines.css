@@ -42,7 +42,7 @@
   background-color: rgba(112, 195, 206, 0.6);
 }
 
-.line-status[data-line-id="docklands"] .colour {
+.line-status[data-line-id="dlr"] .colour {
   background-color: rgba(0, 187, 180, 0.6);
 }
 
