@@ -2,6 +2,8 @@ function TubeStatusCtrl($scope, $http, Chameleon, version) {
 
   var bugsense = new Bugsense({ apiKey: 'cb4096c7', appversion: version });
 
+  // This has to be done like this or it doesn't work.
+  // I should probably figure out why at some point, but not right now.
   setTimeout(function () {
     Chameleon.init({ version: version });
   }, 1);

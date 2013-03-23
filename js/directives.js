@@ -1,4 +1,7 @@
 angular.module('widget.directives', [])
+
+  // Status Line Directive
+
   .directive('statusLine', function () {
     return function (scope, element, attrs) {
       $(element).attr('data-line-id', scope.line.id);
@@ -11,31 +14,34 @@ angular.module('widget.directives', [])
       }
     };
   })
-  .directive('timeFromNow', function($timeout) {
+
+  // Time From Now Directive
+
+  .directive('timeFromNow', function ($timeout) {
     return function (scope, element, attrs) {
       var timeoutId = null;
       var momentDate = null;
- 
+
       function updateTime() {
         element.text(momentDate.fromNow());
       }
- 
+
       scope.$watch(attrs.timeFromNow, function (value) {
         momentDate = moment(value);
         updateTime();
       });
- 
+
       function updateLater() {
         timeoutId = $timeout(function() {
           updateTime();
           updateLater();
         }, 60 * 1000);
       }
- 
+
       element.bind('$destroy', function() {
         $timeout.cancel(timeoutId);
       });
- 
+
       updateLater();
-    }
+    };
   });
