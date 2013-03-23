@@ -10,4 +10,32 @@ angular.module('widget.directives', [])
         $(element).find('.status').addClass('colour');
       }
     };
+  })
+  .directive('timeFromNow', function($timeout) {
+    return function (scope, element, attrs) {
+      var timeoutId = null;
+      var momentDate = null;
+ 
+      function updateTime() {
+        element.text(momentDate.fromNow());
+      }
+ 
+      scope.$watch(attrs.timeFromNow, function (value) {
+        momentDate = moment(value);
+        updateTime();
+      });
+ 
+      function updateLater() {
+        timeoutId = $timeout(function() {
+          updateTime();
+          updateLater();
+        }, 60 * 1000);
+      }
+ 
+      element.bind('$destroy', function() {
+        $timeout.cancel(timeoutId);
+      });
+ 
+      updateLater();
+    }
   });

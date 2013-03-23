@@ -14,7 +14,7 @@
   background-color: rgba(0, 114, 41, 0.6);
 }
 
-.line-status[data-line-id="hammersmithcity"] .colour {
+.line-status[data-line-id="hammersmithandcity"] .colour {
   background-color: rgba(232, 153, 168, 0.6);
 }
 
@@ -38,7 +38,7 @@
   background-color: rgba(0, 159, 224, 0.6);
 }
 
-.line-status[data-line-id="waterloocity"] .colour {
+.line-status[data-line-id="waterlooandcity"] .colour {
   background-color: rgba(112, 195, 206, 0.6);
 }
 

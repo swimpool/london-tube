@@ -55,6 +55,20 @@ body.not-chameleon {
   width: 50%;
 }
 
+.line-status-footer {
+  color: #ddd;
+  background-color: rbga(50, 50, 50, 0.3);
+  font-size: 0.8em;
+}
+
+.line-status-footer div {
+  padding: 0.1em 0.2em;
+}
+
+.line-status-footer div:first-child {
+  text-align:  right;
+}
+
 @media (max-height: 280px) {
 
   #line-status-table {
@@ -65,4 +79,8 @@ body.not-chameleon {
     display: none;
   }
 
+  .line-status-footer {
+    display: none;
+  }
 }
+

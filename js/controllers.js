@@ -2,6 +2,10 @@ function TubeStatusCtrl($scope, $http, Chameleon, version) {
 
   var bugsense = new Bugsense({ apiKey: 'cb4096c7', appversion: version });
 
+  setTimeout(function () {
+    Chameleon.init({ version: version });
+  }, 1);
+
   $scope.$on('chameleon.refresh', function () {
     updateStatus();
   });
@@ -11,12 +15,14 @@ function TubeStatusCtrl($scope, $http, Chameleon, version) {
   $scope.$on('chameleon.pause', stopPolling);
   $scope.$on('chameleon.connect', startPolling);
   $scope.$on('chameleon.disconnect', stopPolling);
+  $scope.$on('chameleon.notchameleon', startPolling);
 
   $scope.lineClicked = function (line) {
     $scope.$emit('chameleon.openLink', 'http://m.tfl.gov.uk/mt/www.tfl.gov.uk/tfl/livetravelnews/realtime/tube/default.html?un_jtt_v_message=' + line.id);
   };
 
   function startPolling(event) {
+    stopPolling();
     updateStatus();
     $scope.$emit('chameleon.polling.start', {
       id: 'status-update',
@@ -34,7 +40,7 @@ function TubeStatusCtrl($scope, $http, Chameleon, version) {
   }
 
   function updateStatus() {
-    $http.get('http://widgetgecko.com/api/london-tube/status.json')
+    $http.get('http://widgetgecko.com/api/london-tube/status.json?t=' +  Math.round((new Date()).getTime() / 1000))
       .success(function (data) {
         $scope.lines = data;
         $scope.lastUpdated = new Date();
