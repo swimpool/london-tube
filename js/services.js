@@ -1,1 +1,1 @@
-angular.module('widget.services', []).value('version', '0.2.16');
+angular.module('widget.services', []).value('version', '0.3.0');
