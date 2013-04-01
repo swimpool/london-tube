@@ -5,7 +5,7 @@
     <baseURL>http://s3.amazonaws.com/widgetgecko/london-tube/</baseURL>
     <name>London Tube</name>
     <description>A widget showing the current status of the London Tube network.</description>
-    <version>0.3.1</version>
+    <version>0.3.4</version>
   </widget>
   <style>
     <icons>
