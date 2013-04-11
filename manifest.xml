@@ -5,7 +5,7 @@
     <baseURL>http://s3.amazonaws.com/widgetgecko/london-tube/</baseURL>
     <name>London Tube</name>
     <description>A widget showing the current status of the London Tube network.</description>
-    <version>0.3.4</version>
+    <version>0.3.5</version>
   </widget>
   <style>
     <icons>
@@ -33,7 +33,7 @@
     <resource name="js/filters.js" />
     <resource name="js/services.js" />
     <resource name='css/widget.css' />
-    <resource name='css/line.css' />
+    <resource name='css/lines.css' />
     <resource name='images/icon.png' />
   </resources>
 </manifest>
